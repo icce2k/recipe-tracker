@@ -9,9 +9,10 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(express.json());
+// middleware
+app.use(express.json()); // parses JSON bodies: req.body
 // app.use(rateLimiter);
-app.use('/api/recipes', recipesRoutes);
+app.use('/api/recipes', recipesRoutes); // mounts router on the path /api/recipes
 
 connectDB().then(() => {
   app.listen(PORT, () => {
