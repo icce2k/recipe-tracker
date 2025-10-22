@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3000;
 
 // middleware
 app.use(express.json()); // parses JSON bodies: req.body
-app.use(rateLimiter);
+app.use(rateLimiter); // rate limiting using upstash and redis
 app.use('/api/recipes', recipesRoutes); // mounts router on the path /api/recipes
 
 connectDB().then(() => {
